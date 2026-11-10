@@ -208,8 +208,8 @@ app-owned `Raise()` behavior remains. The panel's **Open Home Theater** also sel
 Computer using the existing Sony input policy; `open_stremio` remains a
 compatibility request alias, now with Home Theater semantics.
 
-The installed plugin may be a Git checkout or an existing development symlink;
-no dotfiles move or new symlink is required. QML hot reload does **not** reload
+The installed plugin is a Git checkout managed by the Omarchy CLI;
+no dotfiles move or symlink is required. QML hot reload does **not** reload
 the long-running Python router. An authorized
 restart loads new Python code. Successful target selection now checkpoints only
 the selected target in the existing private runtime directory (0600); startup
@@ -370,8 +370,9 @@ omarchy plugin add https://github.com/FredrikMWold/omarchy-shield-remote.git --e
 
 The repository root contains `manifest.json`; Omarchy installs it at
 `~/.config/omarchy/plugins/fredrik.shield-remote`. Update with
-`omarchy plugin update fredrik.shield-remote`. Existing development links to a
-checkout at `~/omarchy-plugins/fredrik.shield-remote` remain supported.
+`omarchy plugin update fredrik.shield-remote`. An optional development checkout
+at `~/omarchy-plugins/fredrik.shield-remote` stays separate; do not symlink it
+into the installed plugin directory.
 The setup helper does not clone repositories, register plugins, create symlinks
 or change the bar layout. To validate an existing checkout:
 
