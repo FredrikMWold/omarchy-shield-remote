@@ -4,6 +4,7 @@
   "name": "Shield Remote",
   "version": "0.1.0",
   "author": "Fredrik",
+  "homepage": "https://github.com/FredrikMWold/omarchy-shield-remote",
   "description": "Route a Shield remote between this computer and native Shield TV controls",
   "kinds": ["bar-widget"],
   "entryPoints": {"barWidget": "BarWidget.qml"},

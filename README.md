@@ -208,7 +208,7 @@ app-owned `Raise()` behavior remains. The panel's **Open Home Theater** also sel
 Computer using the existing Sony input policy; `open_stremio` remains a
 compatibility request alias, now with Home Theater semantics.
 
-This machine-local plugin source is reached by its existing installed symlink;
+The installed plugin may be a Git checkout or an existing development symlink;
 no dotfiles move or new symlink is required. QML hot reload does **not** reload
 the long-running Python router. An authorized
 restart loads new Python code. Successful target selection now checkpoints only
@@ -362,20 +362,27 @@ This is a personal plugin for current Omarchy, including Hyprland's Lua
 dispatchers, BlueZ and the graphical-session user manager. The computer must
 stay on and within Bluetooth range of the remote to control either target.
 
-Keep this plugin in `~/omarchy-plugins/fredrik.shield-remote` and create/manage
-the symlink into `~/.config/omarchy/plugins/fredrik.shield-remote` yourself.
-The setup helper does not clone repositories, register plugins, create symlinks
-or change the bar layout. Validate and enable the widget yourself with:
+Install the standalone repository through Omarchy:
 
 ```sh
-omarchy plugin validate ~/omarchy-plugins/fredrik.shield-remote
-omarchy plugin enable fredrik.shield-remote right
+omarchy plugin add https://github.com/FredrikMWold/omarchy-shield-remote.git --enable
+```
+
+The repository root contains `manifest.json`; Omarchy installs it at
+`~/.config/omarchy/plugins/fredrik.shield-remote`. Update with
+`omarchy plugin update fredrik.shield-remote`. Existing development links to a
+checkout at `~/omarchy-plugins/fredrik.shield-remote` remain supported.
+The setup helper does not clone repositories, register plugins, create symlinks
+or change the bar layout. To validate an existing checkout:
+
+```sh
+omarchy plugin validate ~/.config/omarchy/plugins/fredrik.shield-remote
 ```
 
 Use **Setup remote** in the panel, or run:
 
 ```sh
-bash ~/omarchy-plugins/fredrik.shield-remote/setup.sh
+bash ~/.config/omarchy/plugins/fredrik.shield-remote/setup.sh
 ```
 
 Run this helper in your Omarchy desktop session. It resolves the locked
